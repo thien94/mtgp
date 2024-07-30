@@ -90,7 +90,7 @@ if (nargout == 2)                      % If requested, its partial derivatives
       
     elseif ( z <= (nlf+ltheta_x) )           % Gradient wrt parameters of Kx
       z_x =  z - nlf;
-      dKx = feval(covfunc_x{:},theta_x, x, z_x);      
+      dKx = feval(covfunc_x{:}, theta_x, x, [], z_x);  
       dK = Kf(ind_kf,ind_kf).*dKx(ind_kx,ind_kx);
       
     elseif ( z >= (nlf+ltheta_x+1) )         % Gradient wrt Noise variances
