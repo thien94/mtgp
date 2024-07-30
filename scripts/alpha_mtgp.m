@@ -69,6 +69,7 @@ K = K + Sigma_noise;
 L = chol(K)';                        % cholesky factorization of the covariance
 alpha = solve_chol(L',y);
 
-[Kss Kxstar] = feval(covfunc_x{:}, theta_x, x, xstar);
+[Kxstar] = feval(covfunc_x{:}, theta_x, x, xstar);
+[Kss] = feval(covfunc_x{:}, theta_x, xstar, 'diag');
 
 
